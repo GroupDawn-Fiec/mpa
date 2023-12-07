@@ -1,11 +1,3 @@
-export interface Root {
-
-
-  "0": Game
-
-}
-
-
 
 
 export interface Game {
