@@ -24,7 +24,7 @@
         - name: Setup Node.js environment
           uses: actions/setup-node@v3.7.0
           with:
-            node-version: "18" 
+            node-version: "21" 
         - name: Install deps
           run: npm i
         - name: Build
