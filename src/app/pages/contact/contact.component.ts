@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterLinkActive, RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [],
+  imports: [ RouterLinkActive, RouterLink],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
