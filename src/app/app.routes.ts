@@ -9,4 +9,5 @@ export const routes: Routes = [
     { path: 'product-details', component: ProductDetailsComponent },
     { path: 'shop', component: ShopComponent },
     { path: 'contact', component: ContactComponent },
+    { path: '**', redirectTo: "IndexComponent" }
 ];
