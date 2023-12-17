@@ -6,14 +6,14 @@ import { RouterLinkActive, RouterLink } from '@angular/router';
 
 
 @Component({
-  selector: 'app-product-details',
+  selector: 'app-statistics',
   standalone: true,
   imports: [HttpClientModule,RouterLinkActive, RouterLink],
   providers:[DataProviderService],
-  templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css'
+  templateUrl: './statistics.component.html',
+  styleUrl: './statistics.component.css'
 })
-export class ProductDetailsComponent {
+export class StatisticsComponent {
   public data : Game[] = [];
   constructor(private dataProvider: DataProviderService) { }
   ngOnInit() {
@@ -24,6 +24,4 @@ export class ProductDetailsComponent {
       console.error('Error en la petición:', error);
     })
   }
-
 }
-

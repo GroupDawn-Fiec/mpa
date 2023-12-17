@@ -5,15 +5,14 @@ import { Game } from '../../interfaces/game';
 import { DataProviderService } from '../../providers/data-provider.service';
 
 @Component({
-  selector: 'app-shop',
+  selector: 'app-data-set',
   standalone: true,
   imports: [ RouterLinkActive, RouterLink, HttpClientModule],
   providers: [ DataProviderService ],
-  templateUrl: './shop.component.html',
-  styleUrl: './shop.component.css'
+  templateUrl: './data-set.component.html',
+  styleUrl: './data-set.component.css'
 })
-export class ShopComponent {
-
+export class DataSetComponent {
   public data : Game[] = [];
   constructor(private dataProvider: DataProviderService) { }
   ngOnInit() {
@@ -24,5 +23,4 @@ export class ShopComponent {
       console.error('Error en la petición:', error);
     })
   }
-
 }

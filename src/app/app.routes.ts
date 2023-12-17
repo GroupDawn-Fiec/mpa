@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 import { IndexComponent } from './pages/index/index.component';
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
-import { ShopComponent } from './pages/shop/shop.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { DataSetComponent } from './pages/data-set/data-set.component';
+import { StatisticsComponent } from './pages/statistics/statistics.component';
 
 export const routes: Routes = [
     { path: '', component: IndexComponent },
-    { path: 'product-details', component: ProductDetailsComponent },
-    { path: 'shop', component: ShopComponent },
+    { path: 'data-set', component: DataSetComponent },
+    { path: 'statistics', component: StatisticsComponent },
     { path: 'contact', component: ContactComponent },
     { path: '**', redirectTo: "IndexComponent" }
 ];
