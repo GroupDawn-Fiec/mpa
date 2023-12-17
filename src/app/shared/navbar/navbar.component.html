@@ -9,11 +9,11 @@
                 <!-- ***** Logo End ***** -->
                 <!-- ***** Menu Start ***** -->
                 <ul class="nav">
-                  <li><a routerLink="/" class="active">Home</a></li>
-                  <li><a routerLink="/shop">DataSet</a></li>
-                  <li><a routerLink="/product-details">Charts</a></li>
-                  <li><a routerLink="/contact">Contact Us</a></li>
-                  <li><a href="#">Sign In</a></li>
+                  <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Home</a></li>
+                  <li><a routerLink="/shop" routerLinkActive="active">DataSet</a></li>
+                  <li><a routerLink="/product-details" routerLinkActive="active">Charts</a></li>
+                  <li><a routerLink="/contact" routerLinkActive="active" >Contact Us</a></li>
+                  <li><a href="/" routerLinkActive="active" >Sign In</a></li>
               </ul>   
                 <a class='menu-trigger'>
                     <span>Menu</span>
