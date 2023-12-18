@@ -14,14 +14,22 @@ import { RouterLinkActive, RouterLink } from '@angular/router';
   styleUrl: './statistics.component.css'
 })
 export class StatisticsComponent {
+
+ 
+
   public data : Game[] = [];
+
   constructor(private dataProvider: DataProviderService) { }
+
   ngOnInit() {
     this.dataProvider.getResponse().subscribe((response) => { 
       let dataArray = (response as Game[]); 
       this.data = dataArray.slice(0,20);
+      this.data = dataArray;
+
     },(error) => {
       console.error('Error en la petición:', error);
     })
   }
+
 }
