@@ -17,14 +17,6 @@ export class DataSetComponent {
 
   selectedFilter: { [key: string]: string } = {};
 
-
-  id: string = '';
-  title: string = '';
-  date_release: string = '';
-  rating: string = '';
-  price_original: string = '';
-  price_final: string = '';
-
   public data: Game[] = [];
   public filteredData: Game[] = [];
 
@@ -42,13 +34,15 @@ export class DataSetComponent {
     );
   }
 
-  addFilter(index: string) {
+  addFilter() {
     this.filteredData = this.data.filter(item =>{
-      
 
-      console.log(item[index])
+      return Object.keys(this.selectedFilter).every(key => {
+        const filter = this.selectedFilter[key].toLowerCase();
+        return item[key].toLowerCase().includes(filter);
+      });
 
-      return item[index].toLowerCase().includes(this.selectedFilter[index].toLowerCase())
+     // return item[index].toLowerCase().includes(this.selectedFilter[index].toLowerCase())
 
       
       
