@@ -18,7 +18,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
 })
 
 export class DataSetComponent {
-  selectedFilter: { [key: string]: string } = {};
+  selectedFilter: { [key: string]: string } = {'app_id':'','title':'','date_release':'','rating':'','price_original':'','price_final':''};
+
+  isMac = false;
+  isWin = false;
+  isLinux = false;
+  isSteamDeck = false;
+
+  score:number = 0;
+
 
   public data: Game[] = [];
   public filteredData: Game[] = [];
@@ -35,18 +43,28 @@ export class DataSetComponent {
         this.filteredData = this.data;
       },
       (error) => {
-        console.error('Error en la petición:', error);
+        console.error('Request error', error);
       }
     );
   }
 
   addFilter() {
+    console.log(this.score)
     this.currentPage = 1; 
     this.filteredData = this.data.filter((item) => {
       return Object.keys(this.selectedFilter).every((key) => {
-        const filter = this.selectedFilter[key].toLowerCase();
-        return item[key].toLowerCase().includes(filter);
+        let filter = this.selectedFilter[key].toString().toLowerCase();
+       let conditional = (
+        (this.isMac ? JSON.parse(item.mac) : true) &&
+        (this.isWin ? JSON.parse(item.win) : true) &&
+        (this.isLinux ? JSON.parse(item.linux) : true) &&
+        (this.isSteamDeck ? JSON.parse(item.steam_deck) : true)&&
+        (Number(item.positive_ratio) >=this.score)
+      );
+       
+       return item[key].toLowerCase().includes(filter) &&conditional ;
       });
     });
   }
+
 }
