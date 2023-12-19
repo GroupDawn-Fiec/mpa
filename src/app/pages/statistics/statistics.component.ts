@@ -3,9 +3,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { Game } from '../../interfaces/game';
 import { DataProviderService } from '../../providers/data-provider.service';
 import { RouterLinkActive, RouterLink } from '@angular/router';
-import { Chart, BarController, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend, ChartItem, LineElement, LineController, PointElement, Point } from 'chart.js';
+import { Chart, BarController, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend, ChartItem, LineElement, LineController, PointElement, Point, PieController, ArcElement, BubbleController, RadialLinearScale, PolarAreaController } from 'chart.js';
 
-Chart.register(BarController, BarElement, CategoryScale, LinearScale, LineElement, LineController, PointElement, Title, Tooltip, Legend);
+Chart.register(BarController, BarElement, CategoryScale, LinearScale, LineElement, LineController, PointElement, PieController, ArcElement, BubbleController, PolarAreaController, RadialLinearScale, Title, Tooltip, Legend);
 
 
 @Component({
@@ -31,6 +31,10 @@ export class StatisticsComponent {
       this.createChart1(dataArray);
 
       this.createChart2(dataArray);
+
+      this.createChart3(dataArray);
+
+      this.createChart4(dataArray);
 
      
 
@@ -143,4 +147,120 @@ export class StatisticsComponent {
 
   }
 
+  createChart3(data: Game[]) {
+    const filteredData = data.filter(game => game.steam_deck === 'true' && parseFloat(game.user_reviews) >= 9000);
+    filteredData.sort((a, b) => {
+        return parseFloat(b.positive_ratio) - parseFloat(a.positive_ratio);
+    });
+
+    let dataP = filteredData.slice(0, 5);
+
+    // Obtener el contexto del elemento canvas por su id
+    let canvas = document.getElementById("myChart3") as HTMLCanvasElement;
+    let ctxtmp = canvas.getContext('2d');
+    let ctx = ctxtmp as ChartItem;
+
+    // Crear un arreglo con los títulos de los juegos
+    let titles = dataP.map(game => game.title);
+    // Crear un arreglo con los porcentajes de ratio positivo de los juegos
+    let ratio = dataP.map(game => game.positive_ratio);
+
+    // Crear un arreglo de colores diferentes para cada sector
+    // Puedes agregar más colores según la cantidad de elementos en tu gráfico
+    let colors = [
+        'rgba(255, 99, 132, 0.8)',
+        'rgba(54, 162, 235, 0.8)',
+        'rgba(255, 206, 86, 0.8)',
+        'rgba(75, 192, 192, 0.8)',
+        'rgba(153, 102, 255, 0.8)',
+    ];
+
+    // Crear un objeto con los datos del gráfico
+    let chartData = {
+        labels: titles,
+        datasets: [{
+            data: ratio,
+            label: '%Positive Ratio',
+            backgroundColor: colors,
+        }],
+        options: {
+            title: {
+                display: true,
+                text: 'Positive Ratio (%)',
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    };
+
+    // Crear una instancia de Chart
+    let chart = new Chart(ctx, {
+        type: 'pie',
+        data: chartData
+    });
+}
+
+
+createChart4(data: Game[]) {
+  data.sort((a, b) => {
+    // Convertir los descuentos a números y restarlos
+    return parseFloat(b.discount) - parseFloat(a.discount);
+  });
+
+  let dataP = data.slice(0, 20);
+
+  // Obtener el contexto del elemento canvas por su id
+  let canvas = document.getElementById("myChart4") as HTMLCanvasElement;
+  let ctxtmp = canvas.getContext('2d');
+  let ctx = ctxtmp as ChartItem;
+
+  // Crear un arreglo con los títulos de los juegos
+  let titles = dataP.map(game => game.title);
+  // Crear un arreglo con los descuentos de los juegos
+  let discounts = dataP.map(game => game.discount);
+
+  // Crear un arreglo de colores diferentes para cada sector
+  let colors = [
+    'rgba(255, 99, 132, 0.8)',
+    'rgba(54, 162, 235, 0.8)',
+    'rgba(255, 206, 86, 0.8)',
+    'rgba(75, 192, 192, 0.8)',
+    'rgba(153, 102, 255, 0.8)',
+    // Agrega más colores según sea necesario
+  ];
+
+  // Crear un objeto con los datos del gráfico
+  let chartData = {
+    labels: titles,
+    datasets: [{
+      data: discounts,
+      label: '%discount',
+      backgroundColor: colors,
+    }],
+    options: {
+      title: {
+        display: true,
+        text: 'Discount (%)',
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  };
+
+  // Crear una instancia de Chart
+  let chart = new Chart(ctx, {
+    type: 'polarArea',
+    data: chartData
+  });
+}
 }
