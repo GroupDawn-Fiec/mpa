@@ -5,27 +5,33 @@ import { Game } from '../../interfaces/game';
 import { DataProviderService } from '../../providers/data-provider.service';
 import { FormsModule } from '@angular/forms';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
 @Component({
   selector: 'app-data-set',
   standalone: true,
-  imports: [RouterLinkActive, RouterLink, HttpClientModule, FormsModule],
+  imports: [RouterLinkActive, RouterLink, HttpClientModule, FormsModule,NgxPaginationModule],
   providers: [DataProviderService],
   templateUrl: './data-set.component.html',
   styleUrl: './data-set.component.css',
 })
-export class DataSetComponent {
 
+export class DataSetComponent {
   selectedFilter: { [key: string]: string } = {};
 
   public data: Game[] = [];
   public filteredData: Game[] = [];
+  public currentPage = 1;
+  public itemsPerPage = 20; 
 
   constructor(private dataProvider: DataProviderService) {}
+
   ngOnInit() {
     this.dataProvider.getResponse().subscribe(
       (response) => {
         let dataArray = response as Game[];
-        this.data = dataArray.slice(0, 20);
+        this.data = dataArray;
         this.filteredData = this.data;
       },
       (error) => {
@@ -35,19 +41,12 @@ export class DataSetComponent {
   }
 
   addFilter() {
-    this.filteredData = this.data.filter(item =>{
-
-      return Object.keys(this.selectedFilter).every(key => {
+    this.currentPage = 1; 
+    this.filteredData = this.data.filter((item) => {
+      return Object.keys(this.selectedFilter).every((key) => {
         const filter = this.selectedFilter[key].toLowerCase();
         return item[key].toLowerCase().includes(filter);
       });
-
-     // return item[index].toLowerCase().includes(this.selectedFilter[index].toLowerCase())
-
-      
-      
-      //console.log(Object.keys(item).every(key=>console.log(item[key])))
-
     });
   }
 }

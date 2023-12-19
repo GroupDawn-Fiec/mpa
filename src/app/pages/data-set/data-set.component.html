@@ -34,7 +34,7 @@
       </thead>
 
       <tbody>
-        @for (datum of filteredData; track datum.app_id) {
+        @for (datum of filteredData | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }; track datum.app_id) {
         <tr>
           <th>{{ datum.app_id }}</th>
           <td>{{ datum.title }}</td>
@@ -53,7 +53,8 @@
       </tbody>
   </table>
   
-  
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+
   
   <div class="section trending">
     <div class="container">
