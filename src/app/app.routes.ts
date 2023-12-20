@@ -9,5 +9,5 @@ export const routes: Routes = [
     { path: 'data-set', component: DataSetComponent },
     { path: 'statistics', component: StatisticsComponent },
     { path: 'contact', component: ContactComponent },
-    { path: '**', redirectTo: "IndexComponent" }
+    { path: '**', redirectTo: '' }
 ];
