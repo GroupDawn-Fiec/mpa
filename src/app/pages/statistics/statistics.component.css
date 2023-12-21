@@ -1,0 +1,48 @@
+.card {
+    border: 5px solid #ffffff; /* Ajusta el tamaño y color del borde según tus necesidades */
+    border-radius: 10px; /* Ajusta el radio de la esquina según tus necesidades */
+    padding: 1rem;
+    background-color: #0d6efd;
+  }
+
+  /* styles.css o tu archivo de estilos personalizado */
+.card-body {
+    display: flex;
+    
+  }
+
+  .card-title{
+    color: #ffffff;
+  }
+
+  .img-fluid{
+    width: 100px;
+    height: 100px;
+  }
+
+  .card-text{
+    margin-top: 2rem;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    color: #ffffff;
+    
+  }
+
+  .card-deck{
+    display: flex;
+  }
+
+  .card1, .card2{
+    background-color: #0d6efd;
+    padding: 1rem;
+  }
+
+  .card1{
+    margin-left: 5rem;
+  }
+
+  .card2{
+    margin-right: 5rem;
+  }
+
+
