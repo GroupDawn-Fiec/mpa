@@ -63,7 +63,7 @@ export class StatisticsComponent {
       return parseFloat(b.price_final) - parseFloat(a.price_final);
     });
 
-    let dataP = data.slice(0, 50);
+    let dataP = data.slice(0, 25);
 
     // Obtener el contexto del elemento canvas por su id
     let canvas = document.getElementById("myChart1") as HTMLCanvasElement;
@@ -115,7 +115,7 @@ export class StatisticsComponent {
       return parseFloat(b.user_reviews) - parseFloat(a.user_reviews);
     });
 
-    let dataP = data.slice(0, 50);
+    let dataP = data.slice(0, 10);
 
     // Obtener el contexto del elemento canvas por su id
     let canvas = document.getElementById("myChart2") as HTMLCanvasElement;
