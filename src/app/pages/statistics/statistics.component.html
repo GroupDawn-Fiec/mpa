@@ -3,14 +3,55 @@
     <div class="row">
       <div class="col-lg-12">
         <h3>STATISTICS OF STEAM UP TO DATE SHOWED IN CHARTS</h3>
-        <span class="breadcrumb"><a routerLink="/">Home</a> > <a routerLink="/">Statistics</a></span>
+        <span class="breadcrumb"><a routerLink="/">Home</a> > Statistics</span>
       </div>
     </div>
   </div>
 </div>
 
-<br>
-<br>
+<div class="section most-played">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="section-heading">
+          <h6>STATISTICS:</h6>
+          <h2> UNVEILING THE PULSE OF STEAM GAMING</h2>
+        </div>
+      </div>
+
+      <div class="tab-content" id="myTabContent">
+        <div
+          class="tab-pane fade show active"
+          id="description"
+          role="tabpanel"
+          aria-labelledby="description-tab"
+        >
+          <p>
+            Embark on a visual journey through the beating heart of Steam gaming
+            with our meticulously crafted Statistics section. Here, we bring you
+            a series of dynamic charts and insightful graphs that encapsulate
+            the essence of the gaming landscape on Steam. From overall user
+            engagement and trending genres to player demographics and peak
+            activity times, our charts provide a panoramic view of the
+            platform's vibrant ecosystem.
+          </p>
+          <br />
+          <p>
+            Whether you're a data enthusiast, a developer shaping the next big
+            hit, or a casual gamer seeking trends, our Statistics section is
+            your visual compass to navigate the diverse sea of Steam gaming.
+            Join us as we unfold the story behind the numbers, revealing the
+            captivating dynamics that shape the Steam gaming community. Welcome
+            to a visual feast of gaming analytics — welcome to our Statistics
+            section.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
 
 <div class="container mt-4">
   <div class="card">
@@ -18,14 +59,17 @@
       <div class="col-md-8">
         <h5 class="card-title">Games Count on Steam</h5>
         <div class="card-body">
-
-          <img src="assets/images/icongame.png" alt="icon-game" class="img-fluid">
-          <p class="card-text">{{numJuegos}} Games.</p>
+          <img
+            src="assets/images/icongame.png"
+            alt="icon-game"
+            class="img-fluid"
+          />
+          <p class="card-text">{{ numJuegos }} Games.</p>
           <!-- Puedes agregar más contenido o botones según tus necesidades -->
         </div>
       </div>
     </div>
-  </div> 
+  </div>
 </div>
 
 <div class="card-deck">
@@ -35,9 +79,12 @@
         <div class="col-md-8">
           <h5 class="card-title">Games for Linux</h5>
           <div class="card-body">
-
-            <img src="assets/images/linux.png" alt="icon-game" class="img-fluid">
-            <p class="card-text">{{juegosLinux}} Games.</p>
+            <img
+              src="assets/images/linux.png"
+              alt="icon-game"
+              class="img-fluid"
+            />
+            <p class="card-text">{{ juegosLinux }} Games.</p>
             <!-- Puedes agregar más contenido o botones según tus necesidades -->
           </div>
         </div>
@@ -51,19 +98,19 @@
         <div class="col-md-8">
           <h5 class="card-title">Games for MAC</h5>
           <div class="card-body">
-
-            <img src="assets/images/mac.png" alt="icon-game" class="img-fluid">
-            <p class="card-text">{{juegosMac}} Games.</p>
+            <img
+              src="assets/images/mac.png"
+              alt="icon-game"
+              class="img-fluid"
+            />
+            <p class="card-text">{{ juegosMac }} Games.</p>
             <!-- Puedes agregar más contenido o botones según tus necesidades -->
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
-
-
 
 <!--TABLA 1-->
 <div class="section categories related-games">
@@ -80,8 +127,6 @@
   </div>
 </div>
 
-
-
 <!--TABLA 2-->
 <div class="section categories related-games">
   <div class="container">
@@ -95,9 +140,7 @@
     </div>
     <canvas id="myChart2"></canvas>
   </div>
-</div> 
-
-
+</div>
 
 <!--TABLA 3-->
 <div class="section categories related-games">
@@ -114,9 +157,6 @@
   </div>
 </div>
 
-
-
-
 <!--TABLA 4-->
 <div class="section categories related-games">
   <div class="container">
@@ -124,16 +164,15 @@
       <div class="col-lg-6">
         <div class="section-heading">
           <h6>TOP 20</h6>
-          <h2>Games/Apps on Steam with great discounts to Date for Steam Deck</h2>
+          <h2>
+            Games/Apps on Steam with great discounts to Date for Steam Deck
+          </h2>
         </div>
       </div>
     </div>
     <canvas id="myChart4"></canvas>
   </div>
 </div>
-
-
-
 
 <!--
 

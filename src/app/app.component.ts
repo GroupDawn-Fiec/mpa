@@ -7,6 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { Router, NavigationEnd } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-root',
@@ -16,6 +19,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'mpa3';
+  title = 'mpa';
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    });
+  }
+  
 
 }
