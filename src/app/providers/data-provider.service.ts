@@ -10,7 +10,7 @@ export class DataProviderService {
   
 
   //Atributo URL
-   private URL: string = 'https://proyecto-5-4ae54-default-rtdb.firebaseio.com/collection.json';
+   private URL: string = 'https://proyecto5v2-default-rtdb.firebaseio.com/collection.json';
 
    constructor(private http:HttpClient) { }
 
