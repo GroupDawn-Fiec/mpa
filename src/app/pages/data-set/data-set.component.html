@@ -18,7 +18,7 @@
           <h2>OUR COMPREHENSIVE STEAM GAMING DATASET</h2>
         </div>
       </div>
-      
+
       <div class="tab-content" id="myTabContent">
         <div
           class="tab-pane fade show active"
@@ -244,21 +244,62 @@
     <div class="container">
       <ul class="trending-filter">
         <li>
-          <a class="is_active" href="#!" data-filter="*">Show All</a>
+          <a
+            class="is_active"
+            (click)="filterIso('*', $event)"
+            routerLink="/data-set"
+            data-filter="*"
+            >Show All</a
+          >
         </li>
         <li>
-          <a href="#!" data-filter=".adv">Adventure</a>
+          <a
+            routerLink="/data-set"
+            (click)="filterIso('.malo', $event)"
+            data-filter=".adv"
+            >Adventure</a
+          >
         </li>
         <li>
-          <a href="#!" data-filter=".str">Strategy</a>
+          <a
+            routerLink="/data-set"
+            (click)="filterIso('.ma', $event)"
+            data-filter=".str"
+            >Strategy</a
+          >
         </li>
         <li>
-          <a href="#!" data-filter=".rac">Racing</a>
+          <a routerLink="/data-set" data-filter=".rac">Racing</a>
         </li>
       </ul>
       <div class="row trending-box">
+        @for (game of trending | paginate: { itemsPerPage: 12,
+          currentPage: currentPageTrendig } ; track $index; )  {
+
         <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv"
+          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv "
+        >
+          <div class="item">
+            <div class="thumb">
+              <a routerLink="/statistics"
+                ><img src="assets/images/trending-01.jpg" alt=""
+              /></a>
+              <span class="price"><em>${{game.price_original}}</em>${{game.price_final}}</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Action</span>
+              <h4>{{game.title}}</h4>
+              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+
+      }@empty {
+        <div
+          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items malo col-md-6 adv"
         >
           <div class="item">
             <div class="thumb">
@@ -274,205 +315,17 @@
             </div>
           </div>
         </div>
-        <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str"
-        >
-          <div class="item">
-            <div class="thumb">
-              <a routerLink="/statistics"
-                ><img src="assets/images/trending-02.jpg" alt=""
-              /></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv rac"
-        >
-          <div class="item">
-            <div class="thumb">
-              <a routerLink="/statistics"
-                ><img src="assets/images/trending-03.jpg" alt=""
-              /></a>
-              <span class="price"><em>$45</em>$30</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str"
-        >
-          <div class="item">
-            <div class="thumb">
-              <a routerLink="/statistics"
-                ><img src="assets/images/trending-04.jpg" alt=""
-              /></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac str"
-        >
-          <div class="item">
-            <div class="thumb">
-              <a routerLink="/statistics"
-                ><img src="assets/images/trending-03.jpg" alt=""
-              /></a>
-              <span class="price"><em>$38</em>$26</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac adv"
-        >
-          <div class="item">
-            <div class="thumb">
-              <a routerLink="/statistics"
-                ><img src="assets/images/trending-01.jpg" alt=""
-              /></a>
-              <span class="price"><em>$30</em>$20</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac str"
-        >
-          <div class="item">
-            <div class="thumb">
-              <a routerLink="/statistics"
-                ><img src="assets/images/trending-04.jpg" alt=""
-              /></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac adv"
-        >
-          <div class="item">
-            <div class="thumb">
-              <a routerLink="/statistics"
-                ><img src="assets/images/trending-02.jpg" alt=""
-              /></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv rac"
-        >
-          <div class="item">
-            <div class="thumb">
-              <a routerLink="/statistics"
-                ><img src="assets/images/trending-03.jpg" alt=""
-              /></a>
-              <span class="price"><em>$28</em>$20</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str"
-        >
-          <div class="item">
-            <div class="thumb">
-              <a routerLink="/statistics"
-                ><img src="assets/images/trending-04.jpg" alt=""
-              /></a>
-              <span class="price"><em>$26</em>$18</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv"
-        >
-          <div class="item">
-            <div class="thumb">
-              <a routerLink="/statistics"
-                ><img src="assets/images/trending-01.jpg" alt=""
-              /></a>
-              <span class="price"><em>$32</em>$24</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str"
-        >
-          <div class="item">
-            <div class="thumb">
-              <a routerLink="/statistics"
-                ><img src="assets/images/trending-02.jpg" alt=""
-              /></a>
-              <span class="price"><em>$45</em>$30</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
+        }
       </div>
+
       <div class="row">
-        <div class="col-lg-12">
-          <ul class="pagination">
-            <li><a href="#"> &lt; </a></li>
-            <li><a href="#">1</a></li>
-            <li><a class="is_active" href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#"> &gt; </a></li>
-          </ul>
+        <div class="pagination-container d-flex justify-content-center">
+          <pagination-controls 
+            (pageChange)="currentPageTrendig = $event"
+          ></pagination-controls>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
