@@ -248,28 +248,50 @@
             class="is_active"
             (click)="filterIso('*', $event)"
             routerLink="/data-set"
-            data-filter="*"
             >Show All</a
           >
         </li>
         <li>
           <a
             routerLink="/data-set"
-            (click)="filterIso('.malo', $event)"
-            data-filter=".adv"
+            (click)="filterIso('.Action', $event)"
+            >Action</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/data-set"
+            (click)="filterIso('.Adventure', $event)"
             >Adventure</a
           >
         </li>
         <li>
           <a
             routerLink="/data-set"
-            (click)="filterIso('.ma', $event)"
-            data-filter=".str"
+            (click)="filterIso('.Strategy', $event)"
             >Strategy</a
           >
         </li>
         <li>
-          <a routerLink="/data-set" data-filter=".rac">Racing</a>
+          <a
+            routerLink="/data-set"
+            (click)="filterIso('.Indie', $event)"
+            >Indie</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/data-set"
+            (click)="filterIso('.Casual', $event)"
+            >Casual</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/data-set"
+            (click)="filterIso('.RPG', $event)"
+            >RPG</a
+          >
         </li>
       </ul>
       <div class="row trending-box">
@@ -277,17 +299,17 @@
           currentPage: currentPageTrendig } ; track $index; )  {
 
         <div
-          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv "
+          class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv {{Game_metadata.get(+game.app_id)?.tags?.join(' ')}}"
         >
           <div class="item">
             <div class="thumb">
               <a routerLink="/statistics"
-                ><img src="assets/images/trending-01.jpg" alt=""
+                ><img src="{{Game_metadata.get(+game.app_id)?.imgURL }}" alt=""
               /></a>
               <span class="price"><em>${{game.price_original}}</em>${{game.price_final}}</span>
             </div>
             <div class="down-content">
-              <span class="category">Action</span>
+              <span class="category">{{Game_metadata.get(+game.app_id)?.tags?.slice(0, 2)?.join(' ')}}</span>
               <h4>{{game.title}}</h4>
               <a routerLink="/statistics"><i class="fa fa-shopping-bag"></i></a>
             </div>

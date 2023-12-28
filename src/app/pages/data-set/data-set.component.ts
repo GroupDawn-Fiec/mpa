@@ -2,13 +2,13 @@ import { Component, NgZone,ElementRef,AfterViewInit } from '@angular/core';
 import { RouterLinkActive, RouterLink } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { Game } from '../../interfaces/game';
+import { Game_info } from '../../interfaces/game_info';
 import { DataProviderService } from '../../providers/data-provider.service';
 import { FormsModule } from '@angular/forms';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import Isotope from 'isotope-layout';
-//import 'isotope-layout/dist/isotope.css';
 
 @Component({
   selector: 'app-data-set',
@@ -38,17 +38,14 @@ export class DataSetComponent {
   isWin = false;
   isLinux = false;
   isSteamDeck = false;
-
   score: number = 0;
 
   public data: Game[] = [];
   public filteredData: Game[] = [];
-
   public trending: Game[] = [];
-
+  public Game_metadata!: Map<number,Game_info>; 
   public currentPage = 1;
   public currentPageTrendig = 1;
-
   public itemsPerPage = 20;
 
   constructor(
@@ -64,6 +61,16 @@ export class DataSetComponent {
         let dataArray = response as Game[];
         this.data = dataArray;
         this.filteredData = this.data;
+       // this.getDataToShow()
+      },
+      (error) => {
+        console.error('Request error', error);
+      }
+    );
+    this.dataProvider.getMetadataResponse().subscribe(
+      (response) => {
+        let metaDataArray = response as Game_info[];
+        this.Game_metadata =  new Map(metaDataArray.map(item => [item.app_id, item]));
         this.getDataToShow()
       },
       (error) => {
@@ -71,23 +78,29 @@ export class DataSetComponent {
       }
     );
   }
-  private changeTimeout: any;
+
+  ngAfterViewInit() {
+    const trendingBox = this.el.nativeElement.querySelector('.trending-box');
+    const observer = new MutationObserver(() => {
+    observer.disconnect();
+    this.ngZone.run(() => {
+      this.onElementsChange();
+    });
+
+    });
+
+    const config = { childList: true, subtree: true };
+    observer.observe(trendingBox, config);
+    this.initIsotope(trendingBox);
+  }
+
   onElementsChange() {
-    /*this.iso.reloadItems();
-    this.iso.arrange({ filter: `*` });
-    console.log('aaaa');*/
-    if (!this.changeTimeout) {
-      this.changeTimeout = setTimeout(() => {
         this.ngZone.run(() => {
           this.iso.reloadItems();
           this.iso.arrange({ filter: `*` });
-          console.log('aaaa');
         });
-  
-        this.changeTimeout = null;
-      }, 1000); // Establecer un tiempo de espera en milisegundos
     }
-  }
+  
 
   getDataToShow(){
     this.data.forEach(game =>{
@@ -97,28 +110,6 @@ export class DataSetComponent {
     })
   }
 
-  ngAfterViewInit() {
-    // Configurar MutationObserver para detectar cambios en el contenedor
-    const trendingBox = this.el.nativeElement.querySelector('.trending-box');
-    const observer = new MutationObserver(() => {
-       // Desconectar el observer temporalmente
-    observer.disconnect();
-
-    this.ngZone.run(() => {
-      this.onElementsChange();
-    });
-
-    console.log("b")
-
-    });
-
-    const config = { childList: true, subtree: true };
-
-    observer.observe(trendingBox, config);
-
-    // Inicializar Isotope
-    this.initIsotope(trendingBox);
-  }
 
   initIsotope(grid: HTMLElement) {
     this.iso = new Isotope(grid, {
@@ -129,23 +120,6 @@ export class DataSetComponent {
     });
   }
 
-
-  /*
-  ngAfterViewInit() {
-    window.onload = () => {
-      const grid = document.querySelector('.trending-box') as HTMLElement;
-      this.ngZone.run(() => {
-        this.iso = new Isotope(grid, {
-          itemSelector: '.trending-items',
-          layoutMode: 'fitRows',
-          percentPosition: true,
-        });
-      });
-
-      //    let gamesFilters = document.querySelectorAll(".trending-filter a")
-    };
-  }
-*/
   filterIso(filterValue: string, event: any) {
     event.preventDefault();
 
@@ -161,7 +135,6 @@ export class DataSetComponent {
   }
 
   addFilter() {
-    console.log(this.score);
     this.currentPage = 1;
     this.filteredData = this.data.filter((item) => {
       return Object.keys(this.selectedFilter).every((key) => {

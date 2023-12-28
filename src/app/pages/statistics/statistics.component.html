@@ -15,12 +15,17 @@
       <div class="col-lg-6">
         <div class="section-heading">
           <h6>STATISTICS:</h6>
-          <h2> UNVEILING THE PULSE OF STEAM GAMING</h2>
+          <h2>UNVEILING THE PULSE OF STEAM GAMING</h2>
         </div>
       </div>
 
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+        <div
+          class="tab-pane fade show active"
+          id="description"
+          role="tabpanel"
+          aria-labelledby="description-tab"
+        >
           <p>
             Embark on a visual journey through the beating heart of Steam gaming
             with our meticulously crafted Statistics section. Here, we bring you
@@ -54,9 +59,12 @@
       <div class="col-md-8">
         <h5 class="card-title">Games Count on Steam</h5>
         <div class="card-body">
-          <img src="assets/images/icongame.png" alt="icon-game" class="img-fluid" />
+          <img
+            src="assets/images/icongame.png"
+            alt="icon-game"
+            class="img-fluid"
+          />
           <p class="card-text">{{ numJuegos }} Games.</p>
-          <!-- Puedes agregar más contenido o botones según tus necesidades -->
         </div>
       </div>
     </div>
@@ -70,7 +78,11 @@
         <div class="col-md-8">
           <h5 class="card-title">Games for Linux</h5>
           <div class="card-body">
-            <img src="assets/images/linux.png" alt="icon-game" class="img-fluid" />
+            <img
+              src="assets/images/linux.png"
+              alt="icon-game"
+              class="img-fluid"
+            />
             <p class="card-text">{{ juegosLinux }} Games.</p>
             <!-- Puedes agregar más contenido o botones según tus necesidades -->
           </div>
@@ -85,7 +97,11 @@
         <div class="col-md-8">
           <h5 class="card-title">Games for MAC</h5>
           <div class="card-body">
-            <img src="assets/images/mac.png" alt="icon-game" class="img-fluid" />
+            <img
+              src="assets/images/mac.png"
+              alt="icon-game"
+              class="img-fluid"
+            />
             <p class="card-text">{{ juegosMac }} Games.</p>
             <!-- Puedes agregar más contenido o botones según tus necesidades -->
           </div>
@@ -94,6 +110,7 @@
     </div>
   </div>
 </div>
+
 
 <!--TABLA 1-->
 <div class="section categories related-games">
@@ -105,6 +122,56 @@
             <h6>TOP 25</h6>
             <h2>Most Expensive Games/Apps on Steam to Date</h2>
           </div>
+          <div class="more-info">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="tabs-content">
+                    <div class="row">
+                      <div class="nav-wrapper">
+                        <ul class="nav nav-tabs" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button
+                              class="nav-link active"
+                              id="description-tab"
+                              data-bs-toggle="tab"
+                              data-bs-target="#description"
+                              type="button"
+                              role="tab"
+                              aria-controls="description"
+                              aria-selected="true"
+                            >
+                              Description
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-content" id="myTabContent">
+                        <div
+                          class="tab-pane fade show active"
+                          id="description"
+                          role="tabpanel"
+                          aria-labelledby="description-tab"
+                        >
+                          <p>
+                            Uncover the epitome of gaming opulence with our chart
+                            spotlighting the Most Expensive Games on Steam to
+                            date. This curated collection offers a quick glimpse
+                            into the world of premium gaming experiences,
+                            featuring titles that redefine luxury in the digital
+                            realm. Dive into this concise showcase for an overview
+                            of top-tier games where excellence meets a higher
+                            echelon of cost. Welcome to a brief exploration of the
+                            pinnacle of digital entertainment on Steam.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <canvas id="myChart1"></canvas>
         </div>
 
@@ -112,6 +179,58 @@
           <div class="section-heading">
             <h6>TOP 5</h6>
             <h2>Best Games/Apps on Steam to Date for Steam Deck</h2>
+          </div>
+          <div class="more-info">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="tabs-content">
+                    <div class="row">
+                      <div class="nav-wrapper">
+                        <ul class="nav nav-tabs" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button
+                              class="nav-link active"
+                              id="description-tab"
+                              data-bs-toggle="tab"
+                              data-bs-target="#description"
+                              type="button"
+                              role="tab"
+                              aria-controls="description"
+                              aria-selected="true"
+                            >
+                              Description
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-content" id="myTabContent">
+                        <div
+                          class="tab-pane fade show active"
+                          id="description"
+                          role="tabpanel"
+                          aria-labelledby="description-tab"
+                        >
+                          <p>
+                            Dive into the vibrant pulse of user feedback with our
+                            chart highlighting the Most Reviewed Games/Apps on Steam
+                            to date. This section encapsulates the essence of
+                            community engagement, featuring titles that have sparked
+                            conversations and garnered extensive user reviews.
+                            Explore this concise showcase for a snapshot of the most
+                            talked-about games, where user voices echo the diverse
+                            experiences within the Steam community. Join us in this
+                            brief exploration of the games that have left a lasting
+                            impression through the collective lens of user reviews
+                            on Steam.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <canvas id="myChart3"></canvas>
         </div>
@@ -122,12 +241,117 @@
             <h6>TOP 10</h6>
             <h2>Most Reviewed Games/Apps on Steam to Date (User reviews)</h2>
           </div>
+          <div class="more-info">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="tabs-content">
+                    <div class="row">
+                      <div class="nav-wrapper">
+                        <ul class="nav nav-tabs" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button
+                              class="nav-link active"
+                              id="description-tab"
+                              data-bs-toggle="tab"
+                              data-bs-target="#description"
+                              type="button"
+                              role="tab"
+                              aria-controls="description"
+                              aria-selected="true"
+                            >
+                              Description
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-content" id="myTabContent">
+                        <div
+                          class="tab-pane fade show active"
+                          id="description"
+                          role="tabpanel"
+                          aria-labelledby="description-tab"
+                        >
+                          <p>
+                            Discover the ultimate gaming experiences tailor-made for
+                            the Steam Deck with our chart showcasing the Best
+                            Games/Apps on Steam to date for this revolutionary
+                            platform. This section is a curated collection of titles
+                            that harness the full potential of the Steam Deck,
+                            offering an exceptional blend of performance and
+                            immersive gameplay. Explore this concise showcase for a
+                            glimpse into the games that shine on the Steam Deck,
+                            delivering a gaming experience that complements the
+                            innovative features of this portable powerhouse. Welcome
+                            to a brief exploration of the top-tier games and apps
+                            that elevate the gaming experience on the Steam Deck.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <canvas id="myChart2"></canvas>
         </div>
         <div class="col-lg-6">
           <div class="section-heading">
             <h6>TOP 10</h6>
             <h2>Games/Apps on Steam with great discounts to Date for Steam Deck</h2>
+          </div>
+          <div class="more-info">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="tabs-content">
+                    <div class="row">
+                      <div class="nav-wrapper">
+                        <ul class="nav nav-tabs" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button
+                              class="nav-link active"
+                              id="description-tab"
+                              data-bs-toggle="tab"
+                              data-bs-target="#description"
+                              type="button"
+                              role="tab"
+                              aria-controls="description"
+                              aria-selected="true"
+                            >
+                              Description
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-content" id="myTabContent">
+                        <div
+                          class="tab-pane fade show active"
+                          id="description"
+                          role="tabpanel"
+                          aria-labelledby="description-tab"
+                        >
+                          <p>
+                            Unlock a world of savings with our chart highlighting
+                            Games/Apps on Steam with great discounts to date for the
+                            Steam Deck. This section is your gateway to discovering
+                            the best deals on titles optimized for this
+                            groundbreaking platform. Dive into this concise showcase
+                            for a snapshot of discounted games and apps that promise
+                            not only great value but also an enhanced gaming
+                            experience on the Steam Deck. Join us in this brief
+                            exploration of the bargains and gaming treasures
+                            awaiting you on the Steam Deck. Welcome to a world where
+                            top-notch entertainment meets unbeatable discounts.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <canvas id="myChart4"></canvas>
         </div>
@@ -141,8 +365,10 @@
   </div>
 </div>
 
-<!--
 
+
+
+<!--
 <div class="single-product section">
   <div class="container">
     <div class="row">
@@ -161,7 +387,13 @@
           Thank you.
         </p>
         <form id="qty" action="#">
-          <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1" />
+          <input
+            type="qty"
+            class="form-control"
+            id="1"
+            aria-describedby="quantity"
+            placeholder="1"
+          />
           <button type="submit">
             <i class="fa fa-shopping-bag"></i> ADD TO CART
           </button>
@@ -169,7 +401,8 @@
         <ul>
           <li><span>Game ID:</span> COD MMII</li>
           <li>
-            <span>Genre:</span> <a routerLink="/">Action</a>, <a routerLink="/">Team</a>,
+            <span>Genre:</span> <a routerLink="/">Action</a>,
+            <a routerLink="/">Team</a>,
             <a routerLink="/">Single</a>
           </li>
           <li>
@@ -184,129 +417,4 @@
     </div>
   </div>
 </div>
-
-<div class="more-info">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="tabs-content">
-          <div class="row">
-            <div class="nav-wrapper">
-              <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
-                    data-bs-target="#description" type="button" role="tab" aria-controls="description"
-                    aria-selected="true">
-                    Description
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button"
-                    role="tab" aria-controls="reviews" aria-selected="false">
-                    Reviews (3)
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                <p>
-                  You can search for more templates on Google Search using
-                  keywords such as "templatemo digital marketing", "templatemo
-                  one-page", "templatemo gallery", etc. Please tell your friends
-                  about our website. If you need a variety of HTML templates,
-                  you may visit Tooplate and Too CSS websites.
-                </p>
-                <br />
-                <p>
-                  Coloring book air plant shabby chic, crucifix normcore
-                  raclette cred swag artisan activated charcoal. PBR&B fanny
-                  pack pok pok gentrify truffaut kitsch helvetica jean shorts
-                  edison bulb poutine next level humblebrag la croix adaptogen.
-                  Hashtag poke literally locavore, beard marfa kogi bruh artisan
-                  succulents seitan tonx waistcoat chambray taxidermy. Same cred
-                  meggings 3 wolf moon lomo irony cray hell of bitters
-                  asymmetrical gluten-free art party raw denim chillwave tousled
-                  try-hard succulents street art.
-                </p>
-              </div>
-              <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                <p>
-                  Coloring book air plant shabby chic, crucifix normcore
-                  raclette cred swag artisan activated charcoal. PBR&B fanny
-                  pack pok pok gentrify truffaut kitsch helvetica jean shorts
-                  edison bulb poutine next level humblebrag la croix adaptogen.
-                  <br /><br />Hashtag poke literally locavore, beard marfa kogi
-                  bruh artisan succulents seitan tonx waistcoat chambray
-                  taxidermy. Same cred meggings 3 wolf moon lomo irony cray hell
-                  of bitters asymmetrical gluten-free art party raw denim
-                  chillwave tousled try-hard succulents street art.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="section categories related-games">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="section-heading">
-          <h6>Action</h6>
-          <h2>Related Games</h2>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="main-button">
-          <a routerLink="/shop">View All</a>
-        </div>
-      </div>
-      <div class="col-lg col-sm-6 col-xs-12">
-        <div class="item">
-          <h4>Action</h4>
-          <div class="thumb">
-            <a routerLink="/product-details"><img src="assets/images/categories-01.jpg" alt="" /></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg col-sm-6 col-xs-12">
-        <div class="item">
-          <h4>Action</h4>
-          <div class="thumb">
-            <a routerLink="/product-details"><img src="assets/images/categories-05.jpg" alt="" /></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg col-sm-6 col-xs-12">
-        <div class="item">
-          <h4>Action</h4>
-          <div class="thumb">
-            <a routerLink="/product-details"><img src="assets/images/categories-03.jpg" alt="" /></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg col-sm-6 col-xs-12">
-        <div class="item">
-          <h4>Action</h4>
-          <div class="thumb">
-            <a routerLink="/product-details"><img src="assets/images/categories-04.jpg" alt="" /></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg col-sm-6 col-xs-12">
-        <div class="item">
-          <h4>Action</h4>
-          <div class="thumb">
-            <a routerLink="/product-details"><img src="assets/images/categories-05.jpg" alt="" /></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 -->
