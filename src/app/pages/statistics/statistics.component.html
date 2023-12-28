@@ -20,12 +20,7 @@
       </div>
 
       <div class="tab-content" id="myTabContent">
-        <div
-          class="tab-pane fade show active"
-          id="description"
-          role="tabpanel"
-          aria-labelledby="description-tab"
-        >
+        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
           <p>
             Embark on a visual journey through the beating heart of Steam gaming
             with our meticulously crafted Statistics section. Here, we bring you
@@ -59,11 +54,7 @@
       <div class="col-md-8">
         <h5 class="card-title">Games Count on Steam</h5>
         <div class="card-body">
-          <img
-            src="assets/images/icongame.png"
-            alt="icon-game"
-            class="img-fluid"
-          />
+          <img src="assets/images/icongame.png" alt="icon-game" class="img-fluid" />
           <p class="card-text">{{ numJuegos }} Games.</p>
           <!-- Puedes agregar más contenido o botones según tus necesidades -->
         </div>
@@ -79,11 +70,7 @@
         <div class="col-md-8">
           <h5 class="card-title">Games for Linux</h5>
           <div class="card-body">
-            <img
-              src="assets/images/linux.png"
-              alt="icon-game"
-              class="img-fluid"
-            />
+            <img src="assets/images/linux.png" alt="icon-game" class="img-fluid" />
             <p class="card-text">{{ juegosLinux }} Games.</p>
             <!-- Puedes agregar más contenido o botones según tus necesidades -->
           </div>
@@ -98,11 +85,7 @@
         <div class="col-md-8">
           <h5 class="card-title">Games for MAC</h5>
           <div class="card-body">
-            <img
-              src="assets/images/mac.png"
-              alt="icon-game"
-              class="img-fluid"
-            />
+            <img src="assets/images/mac.png" alt="icon-game" class="img-fluid" />
             <p class="card-text">{{ juegosMac }} Games.</p>
             <!-- Puedes agregar más contenido o botones según tus necesidades -->
           </div>
@@ -114,63 +97,47 @@
 
 <!--TABLA 1-->
 <div class="section categories related-games">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="section-heading">
-          <h6>TOP 25</h6>
-          <h2>Most Expensive Games/Apps on Steam to Date</h2>
+  <div class="categories">
+    <div class="d-grid">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h6>TOP 25</h6>
+            <h2>Most Expensive Games/Apps on Steam to Date</h2>
+          </div>
+          <canvas id="myChart1"></canvas>
         </div>
-      </div>
-    </div>
-    <canvas id="myChart1"></canvas>
-  </div>
-</div>
 
-<!--TABLA 2-->
-<div class="section categories related-games">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="section-heading">
-          <h6>TOP 10</h6>
-          <h2>Most Reviewed Games/Apps on Steam to Date (User reviews)</h2>
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h6>TOP 5</h6>
+            <h2>Best Games/Apps on Steam to Date for Steam Deck</h2>
+          </div>
+          <canvas id="myChart3"></canvas>
         </div>
       </div>
-    </div>
-    <canvas id="myChart2"></canvas>
-  </div>
-</div>
-
-<!--TABLA 3-->
-<div class="section categories related-games">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="section-heading">
-          <h6>TOP 5</h6>
-          <h2>Best Games/Apps on Steam to Date for Steam Deck</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h6>TOP 10</h6>
+            <h2>Most Reviewed Games/Apps on Steam to Date (User reviews)</h2>
+          </div>
+          <canvas id="myChart2"></canvas>
         </div>
-      </div>
-    </div>
-    <canvas id="myChart3"></canvas>
-  </div>
-</div>
-
-<!--TABLA 4-->
-<div class="section categories related-games">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="section-heading">
-          <h6>TOP 20</h6>
-          <h2>
-            Games/Apps on Steam with great discounts to Date for Steam Deck
-          </h2>
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h6>TOP 10</h6>
+            <h2>Games/Apps on Steam with great discounts to Date for Steam Deck</h2>
+          </div>
+          <canvas id="myChart4"></canvas>
         </div>
+        
       </div>
+      
+      
+      
+      
     </div>
-    <canvas id="myChart4"></canvas>
   </div>
 </div>
 

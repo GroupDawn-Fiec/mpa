@@ -1,8 +1,38 @@
+h6 {
+  color: #2a475e;
+}
+
+.section.categories {
+  padding: 2%;
+  margin: 0 4rem;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
+
+.col-lg-6 {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .d-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section.categories {
+    padding: 5%;
+  }
+}
+
 .card {
-    border: 5px solid #ffffff; /* Ajusta el tamaño y color del borde según tus necesidades */
+    border: 5px solid #c7d5e0; /* Ajusta el tamaño y color del borde según tus necesidades */
     border-radius: 10px; /* Ajusta el radio de la esquina según tus necesidades */
     padding: 1rem;
-    background-color: #0d6efd;
+    background-color: #2a475e;
   }
 
   /* styles.css o tu archivo de estilos personalizado */
@@ -12,7 +42,7 @@
   }
 
   .card-title{
-    color: #ffffff;
+    color: #c7d5e0;
   }
 
   .img-fluid{
@@ -24,7 +54,7 @@
     margin-top: 2rem;
     margin-left: 2rem;
     font-size: 1.5rem;
-    color: #ffffff;
+    color: #c7d5e0;
     
   }
 
@@ -33,7 +63,7 @@
   }
 
   .card1, .card2{
-    background-color: #0d6efd;
+    background-color: #2a475e;
     padding: 1rem;
   }
 

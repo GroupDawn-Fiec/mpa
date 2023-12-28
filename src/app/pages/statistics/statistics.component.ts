@@ -181,13 +181,13 @@ export class StatisticsComponent {
     // Crear un arreglo de colores diferentes para cada sector
     // Puedes agregar más colores según la cantidad de elementos en tu gráfico
     let colors = [
-      'rgba(255, 99, 132, 0.8)',
-      'rgba(54, 162, 235, 0.8)',
-      'rgba(255, 206, 86, 0.8)',
-      'rgba(75, 192, 192, 0.8)',
-      'rgba(153, 102, 255, 0.8)',
+      'rgba(23, 26, 33, 0.8)',
+      'rgba(102, 192, 244, 0.8)',
+      'rgba(27, 40, 56, 0.8)',
+      'rgba(42, 71, 94, 0.8)',
+      'rgba(199, 213, 224, 0.8)',
     ];
-
+    
     // Crear un objeto con los datos del gráfico
     let chartData = {
       labels: titles,
@@ -225,7 +225,7 @@ export class StatisticsComponent {
       return parseFloat(b.discount) - parseFloat(a.discount);
     });
 
-    let dataP = data.slice(0, 20);
+    let dataP = data.slice(0, 10);
 
     // Obtener el contexto del elemento canvas por su id
     let canvas = document.getElementById("myChart4") as HTMLCanvasElement;
@@ -237,16 +237,22 @@ export class StatisticsComponent {
     // Crear un arreglo con los descuentos de los juegos
     let discounts = dataP.map(game => game.discount);
 
-    // Crear un arreglo de colores diferentes para cada sector
     let colors = [
-      'rgba(255, 99, 132, 0.8)',
-      'rgba(54, 162, 235, 0.8)',
-      'rgba(255, 206, 86, 0.8)',
-      'rgba(75, 192, 192, 0.8)',
-      'rgba(153, 102, 255, 0.8)',
-      // Agrega más colores según sea necesario
+      'rgba(23, 26, 33, 0.8)',
+      'rgba(102, 192, 244, 0.8)',
+      'rgba(27, 40, 56, 0.8)',
+      'rgba(42, 71, 94, 0.8)',
+      'rgba(199, 213, 224, 0.8)',
+      'rgba(60, 87, 111, 0.8)', 
+      'rgba(148, 162, 177, 0.8)',
+      'rgba(93, 104, 120, 0.8)',
+      'rgba(128, 150, 174, 0.8)',
+      'rgba(75, 92, 114, 0.8)',
     ];
-
+    
+    
+    
+    
     // Crear un objeto con los datos del gráfico
     let chartData = {
       labels: titles,
@@ -272,7 +278,7 @@ export class StatisticsComponent {
 
     // Crear una instancia de Chart
     let chart = new Chart(ctx, {
-      type: 'polarArea',
+      type: 'doughnut',
       data: chartData
     });
   }
