@@ -9,14 +9,20 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { Router, NavigationEnd } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavbarComponent, FooterComponent, HttpClientModule, NgxPaginationModule, FontAwesomeModule],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    NavbarComponent,
+    FooterComponent,
+    HttpClientModule,
+    NgxPaginationModule,
+    FontAwesomeModule,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'mpa';
@@ -27,6 +33,4 @@ export class AppComponent {
       }
     });
   }
-  
-
 }

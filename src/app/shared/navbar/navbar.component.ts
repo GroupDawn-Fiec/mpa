@@ -6,7 +6,7 @@ import { RouterLinkActive, RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLinkActive, RouterLink],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
   isMobileMenuOpen: boolean = false;

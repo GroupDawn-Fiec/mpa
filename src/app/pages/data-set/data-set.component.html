@@ -303,7 +303,7 @@
       </ul>
       <div class="row trending-box">
         @for (game of trending | paginate: { itemsPerPage: 12,
-          currentPage: currentPageTrendig, id: 'second'  } ; track game.app_id; )  {
+          currentPage: currentPageTrendig, id: 'second'  } ; track $index )  {
 
         <div
           class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv {{Game_metadata.get(+game.app_id)?.tags?.join(' ')}}"
@@ -347,6 +347,7 @@
         }
       </div>
 
+      <br>
       <div class="row">
         <div class="pagination-container d-flex justify-content-center">
           <pagination-controls (pageChange)="currentPageTrendig = $event" id="second"></pagination-controls>

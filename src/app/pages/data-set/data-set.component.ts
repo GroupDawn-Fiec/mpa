@@ -1,4 +1,4 @@
-import { Component, NgZone,ElementRef,AfterViewInit } from '@angular/core';
+import { Component, NgZone, ElementRef, AfterViewInit } from '@angular/core';
 import { RouterLinkActive, RouterLink } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { Game } from '../../interfaces/game';
@@ -43,14 +43,15 @@ export class DataSetComponent {
   public data: Game[] = [];
   public filteredData: Game[] = [];
   public trending: Game[] = [];
-  public Game_metadata!: Map<number,Game_info>; 
+  public Game_metadata!: Map<number, Game_info>;
   public currentPage = 1;
   public currentPageTrendig = 1;
   public itemsPerPage = 20;
 
   constructor(
     private dataProvider: DataProviderService,
-    private ngZone: NgZone, private el: ElementRef
+    private ngZone: NgZone,
+    private el: ElementRef
   ) {}
 
   private iso!: Isotope;
@@ -61,7 +62,7 @@ export class DataSetComponent {
         let dataArray = response as Game[];
         this.data = dataArray;
         this.filteredData = this.data;
-       // this.getDataToShow()
+        // this.getDataToShow()
       },
       (error) => {
         console.error('Request error', error);
@@ -70,9 +71,11 @@ export class DataSetComponent {
     this.dataProvider.getMetadataResponse().subscribe(
       (response) => {
         let metaDataArray = response as Game_info[];
-        this.Game_metadata =  new Map(metaDataArray.map(item => [item.app_id, item]));
-        let array = this.data
-        this.getDataToShow(array)
+        this.Game_metadata = new Map(
+          metaDataArray.map((item) => [item.app_id, item])
+        );
+        let array = this.data;
+        this.getDataToShow(array);
       },
       (error) => {
         console.error('Request error', error);
@@ -83,13 +86,11 @@ export class DataSetComponent {
   ngAfterViewInit() {
     const trendingBox = this.el.nativeElement.querySelector('.trending-box');
     const observer = new MutationObserver(() => {
-    observer.disconnect();
-    this.ngZone.run(() => {
-      this.onElementsChange();
-      observer.observe(trendingBox, config);
-
-    });
-
+      observer.disconnect();
+      this.ngZone.run(() => {
+        this.onElementsChange();
+        observer.observe(trendingBox, config);
+      });
     });
 
     const config = { childList: true, subtree: true };
@@ -98,25 +99,25 @@ export class DataSetComponent {
   }
 
   onElementsChange() {
-    console.log("a")
-        this.ngZone.run(() => {
-       
-          this.iso.reloadItems();
-          this.iso.arrange({ filter: '*' });
-        });
-    }
-  
-
-  getDataToShow(newData:Game[]){
-    console.log("aaa")
-
-    newData.forEach(game =>{
-      if ((game.rating == "Very Positive" || game.rating == "Positive")  && parseInt(game.user_reviews)>=50000 ){
-        this.trending.push(game)
-      }
-    })
+    console.log('a');
+    this.ngZone.run(() => {
+      this.iso.reloadItems();
+      this.iso.arrange({ filter: '*' });
+    });
   }
 
+  getDataToShow(newData: Game[]) {
+    console.log('aaa');
+
+    newData.forEach((game) => {
+      if (
+        (game.rating == 'Very Positive' || game.rating == 'Positive') &&
+        parseInt(game.user_reviews) >= 50000
+      ) {
+        this.trending.push(game);
+      }
+    });
+  }
 
   initIsotope(grid: HTMLElement) {
     this.iso = new Isotope(grid, {
@@ -130,12 +131,12 @@ export class DataSetComponent {
     event.preventDefault();
 
     this.ngZone.run(() => {
-      let gamesFilters = document.querySelectorAll(".trending-filter a")
-      gamesFilters.forEach(element => {
-        element.classList.remove("is_active")
+      let gamesFilters = document.querySelectorAll('.trending-filter a');
+      gamesFilters.forEach((element) => {
+        element.classList.remove('is_active');
       });
-  
-      event.target.classList.add("is_active")
+
+      event.target.classList.add('is_active');
       this.iso.arrange({ filter: `${filterValue}` });
     });
   }

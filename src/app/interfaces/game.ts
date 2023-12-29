@@ -25,6 +25,5 @@ export interface Game {
 
   win: string;
 
-
   [key: string]: string;
 }
