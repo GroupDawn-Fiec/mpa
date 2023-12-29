@@ -71,7 +71,8 @@ export class DataSetComponent {
       (response) => {
         let metaDataArray = response as Game_info[];
         this.Game_metadata =  new Map(metaDataArray.map(item => [item.app_id, item]));
-        this.getDataToShow()
+        let array = this.data
+        this.getDataToShow(array)
       },
       (error) => {
         console.error('Request error', error);
@@ -85,6 +86,8 @@ export class DataSetComponent {
     observer.disconnect();
     this.ngZone.run(() => {
       this.onElementsChange();
+      observer.observe(trendingBox, config);
+
     });
 
     });
@@ -95,16 +98,20 @@ export class DataSetComponent {
   }
 
   onElementsChange() {
+    console.log("a")
         this.ngZone.run(() => {
+       
           this.iso.reloadItems();
-          this.iso.arrange({ filter: `*` });
+          this.iso.arrange({ filter: '*' });
         });
     }
   
 
-  getDataToShow(){
-    this.data.forEach(game =>{
-      if (game.rating == "Very Positive" && game.positive_ratio=="100" ){
+  getDataToShow(newData:Game[]){
+    console.log("aaa")
+
+    newData.forEach(game =>{
+      if ((game.rating == "Very Positive" || game.rating == "Positive")  && parseInt(game.user_reviews)>=50000 ){
         this.trending.push(game)
       }
     })
@@ -116,7 +123,6 @@ export class DataSetComponent {
       itemSelector: '.trending-items',
       layoutMode: 'fitRows',
       percentPosition: true,
-      filter: '.first-page'
     });
   }
 
